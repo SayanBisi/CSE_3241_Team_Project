@@ -1,0 +1,109 @@
+1,1,1,OCP: Oracle9i Certification Kit,2002,Computer,0782140661,104.97
+2,2,2,SQL Server 2000 for Experienced DBA's,2003,Computer,0072227885,34.99
+3,3,3,The Data Warehouse Toolkit: The Complete Guide to Dimensional Modeling,2002,Computer,0471200247,50
+4,2,4,How To Do Everything with Your Tablet PC,2003,Computer,0072227710,17.49
+5,4,5,Data Mining: Practical Machine Learning Tools and Techniques with Java Implementations,1999,Computer,1558605525,49.95
+6,5,6,Creating Documents with BusinessObjects 5.1,2002,Computer,0972263608,99
+7,6,7,The Guru's Guide to Transact-SQL,2000,Computer,0201615762,38.49
+8,1,8,Access 2002 Developer's Handbook Set,2001,Computer,0782140114,69.99
+9,7,9,ColdFusion MX Web Application Construction Kit,2002,Computer,0321125169,38.49
+10,8,10,Fundamentals of Database Systems,1999,Computer,0805317554,95
+11,9,11,Professional SQL Server 2000 Programming,2000,Computer,1861004486,41.99
+12,8,12,MySQL,2003,Computer,0735712123,34.99
+13,10,13,Cerulean Sins,2003,Literature & Fiction,0425188361,16.07
+14,11,14,The Secret Life of Bees,2003,Literature & Fiction,0142001740,14
+15,12,15,Google Hacks,2003,Computer,0596004478,24.95
+16,13,16,"Investing in Fixer-Uppers : A Complete Guide to Buying Low, Fixing Smart, Adding Value, and Selling (or Renting) High",2003,Accounting & Finance,0071414339,18.95
+17,14,17,The Pianist,2003,Literature & Fiction,0312311354,13
+18,15,18,The Girl in the Red Coat: A Memoir,2002,Literature & Fiction,0312287941,25.95
+19,14,19,The Hours,2000,Literature & Fiction,0312243022,3.44
+20,16,20,Execution: The Discipline of Getting Things Done,2002,Reference,0609610570,27.5
+21,17,21,The Jester,2003,Literature & Fiction,0316602051,27.95
+22,18,22,The Vanished Man: A Lincoln Rhyme Novel,2003,Literature & Fiction,0743222008,25
+23,19,23,Twelve Times Blessed,2003,Literature & Fiction,0066214750,25.95
+24,20,24,The Five Dysfunctions of a Team: A Leadership Fable,2002,Accounting & Finance,0787960756,13.2
+25,18,25,The Second Time Around,2003,Accounting & Finance,0743206061,26
+26,21,26,The Rescuer: The O'Malley Series,2003,Romance,1590520734,12.99
+27,22,27,Bel Canto: A Novel,2002,Romance,0060934417,13.95
+28,23,28,The Dark Highlander,2002,Romance,0440237556,6.99
+29,24,29,Letters to Kelly,2003,Romance,0373272839,4.75
+30,25,30,The Blank Slate: The Modern Denial of Human Nature,2002,Science,0670031518,27.95
+31,26,31,Linked: The New Science of Networks,2002,Science,0738206679,26
+32,27,32,Consilience: The Unity of Knowledge,1999,Science,067976867X,15
+33,28,33,The Future of Life,2002,Science,0679450785,22
+34,29,34,A New Kind of Science,2002,Science,1579550088,44.95
+35,30,35,ON FOOD AND COOKING,1997,Science,0684843285,22
+36,3,36,Building Construction Illustrated,2000,Home Design,0471358983,40
+37,31,37,A Field Guide to American Houses,1984,Home Design,0394739698,24.95
+38,32,38,Prefab,2002,Home Design,1586851322,39.95
+39,32,39,Cabins & Camps,2002,Home Design,1586851357,60
+40,33,40,The New City Home: Smart Solutions for Metro Living,2003,Home Design,156158648X,24.95
+41,34,41,Composers' Houses,1998,Home Design,0865659982,50
+42,35,42,Color: Natural Palettes for Painted Rooms,1992,Home Design,0517576600,50
+43,36,43,Financial Modeling,2000,Accounting & Finance,0262024829,70
+44,37,44,Financial Markets & Corporate Strategy,2001,Accounting & Finance,0072294337,122.5
+45,37,45,Analysis for Financial Management,2000,Accounting & Finance,0072315318,79.2
+46,38,46,Advanced Accounting,2001,Accounting & Finance,0324107501,112.95
+47,3,47,Intermediate Accounting,2001,Accounting & Finance,0471363049,139.2
+48,39,48,Financial Reporting and Analysis,2001,Accounting & Finance,0130323519,126.67
+49,40,49,The Guardian,2003,Literature & Fiction,0446527793,24.95
+50,18,50,The Second Time Around,2003,Literature & Fiction,0743206062,26
+51,41,51,Cosmopolis: A Novel,2003,Literature & Fiction,0743244249,25
+52,42,52,Dreamcatcher,2003,Horror,0743467523,7.99
+53,43,53,House of Leaves,2000,Horror,0375703764,19.95
+54,44,54,The Vampire's Violin,2003,Horror,0345452089,6.99
+55,45,55,Lullaby: A Novel,2002,Horror,0385504470,17.47
+56,15,56,Jinn: A Novel,2003,Horror,0312276702,24.95
+57,42,57,Everything's Eventual: 14 Dark Tales,2002,Horror,0743457358,7.99
+58,46,58,Wolves of the Calla,2003,Horror,1880418568,35
+59,42,59,On Writing,2002,Horror,0743455967,7.99
+60,11,60,White Noise,1991,Literature & Fiction,0140077022,14
+61,47,61,The Names,1989,Literature & Fiction,0679722955,11.2
+62,48,62,UNDERWORLD: A NOVEL,1998,Literature & Fiction,0684848155,16
+63,3,63,"Architecture: Form, Space, and Order",1996,Home Design,0471286168,39.95
+64,3,64,A Visual Dictionary of Architecture,1996,Home Design,0471288217,39.95
+65,49,65,The Magician's Assistant,1998,Romance,0156006219,13
+66,50,66,Patron Saint of Liars,2003,Romance,0060540753,13.95
+67,51,67,How the Mind Works,1999,Science,0393318486,17.95
+68,22,68,The Language Instinct: How the Mind Creates Language,2000,Science,0060958332,10.5
+69,22,69,Words and Rules: The Ingredients of Language,2000,Science,0060958405,15
+70,51,70,The Diversity of Life,1999,Science,0393319407,16.95
+71,52,71,On Human Nature,1988,Science,067463442X,18.95
+72,40,72,A Walk to Remember,2000,Literature & Fiction,0446608955,6.99
+73,40,73,The Notebook,1999,Literature & Fiction,0446676098,12.95
+74,40,74,Message in a Bottle,1999,Literature & Fiction,0446606812,7.5
+75,36,75,Numerical Techniques in Finance,1989,Accounting & Finance,0262521415,35
+76,36,76,Econometric Analysis of Cross Section and Panel Data,2001,Accounting & Finance,0262232197,74.95
+77,38,77,Introductory Econometrics: A Modern Approach,2002,Accounting & Finance,0324113641,107.95
+78,3,78,Beyond Coso : Internal Control to Enhance Corporate Governance,2000,Accounting & Finance,0471391123,50
+79,53,79,Real World FPGA Design with Verilog,1999,Computer,0130998516,83
+80,12,80,Ldap System Administration,2003,Computer,1565924916,39.95
+81,54,81,The Photoshop Book for Digital Photographers,2003,Computer,0735712360,39.99
+82,54,82,Photoshop 7 Down & Dirty Tricks,2002,Computer,0735712379,39.99
+83,54,83,Mac OS X v. 10.2 Jaguar Killer Tips,2002,Computer,0735713170,29.99
+84,4,84,Persuasive Technology: Using Computers to Change What We Think and Do,2002,Computer,1558606432,34.95
+85,2,85,A+ Certification All-in-One Exam Guide,2002,Computer,0072222743,59.99
+86,55,86,The Demon-Haunted World: Science As a Candle in the Dark,1997,Science,0345409469,14.95
+87,27,87,Cosmos,2002,Science,0375508325,35
+88,55,88,Broca's Brain: Reflections on the Romance of Science,1993,Science,0345336895,6.99
+89,42,89,Contact,1997,Science,0671004107,7.99
+90,55,90,Pale Blue Dot: A Vision of the Human Future in Space,1997,Science,0345376595,12.95
+91,17,91,The Lovely Bones: A Novel,2002,Literature & Fiction,0316666343,21.95
+92,56,92,Lucky: A Memoir,2002,Literature & Fiction,0316096199,11.95
+93,57,93,Atonement,2003,Literature & Fiction,038572179X,14
+94,57,94,Amsterdam,1999,Literature & Fiction,0385494246,12
+95,57,95,Black Dogs,1999,Literature & Fiction,0385494327,14
+96,57,96,Enduring Love,1999,Literature & Fiction,0385494149,13
+97,58,97,Birthright,2003,Literature & Fiction,0399149848,25.95
+98,60,98,Engaging The Enemy,2003,Literature & Fiction,0373218192,7.5
+99,24,99,Love By Design,2003,Literature & Fiction,0373218257,14.95
+100,58,100,Chesapeake Blue,2002,Literature & Fiction,0399149392,25.95
+101,33,101,The Complete Illustrated Guide to Furniture and Cabinet Construction,2001,Home Design,1561584029,39.95
+102,61,102,Choosing & Using Hand Tools,2002,Home Design,1579902944,19.95
+103,33,103,Building a Shed,2003,Home Design,1561586196,19.95
+104,62,104,Small Gods,1994,Fantasy,0061092177,7.99
+105,62,105,Going Postal,2005,Fantasy,0060502935,7.99
+106,62,106,Pyramids,2001,Fantasy,0061020656,7.99
+107,62,107,The Color of Magic,2005,Fantasy,0060855925,13.99
+108,62,108,Guards! Guards!,2001,Fantasy,0061020648,7.99
+109,62,109,Unseen Academicals,2010,Fantasy,0061161721,7.99

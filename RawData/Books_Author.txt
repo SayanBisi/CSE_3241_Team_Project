@@ -1,0 +1,142 @@
+1,Chip Dawes
+1,Biju Thomas
+1,Doug Stuns
+1,Matthew Weishan
+1,Joseph C. Johnson
+2,Brian Knight
+3,Ralph Kimball
+3,Margy Ross
+4,Bill Mann
+5,Ian H. Witten
+5,Eibe Frank
+6,Robert D. Schmidt
+7,Ken Henderson
+8,Paul Litwin
+8,Ken Getz
+8,Mike Gunderloy
+9,Ben Forta
+9,Nate Weiss
+9,Leon Chalnick
+9,Angela C. Buraglia
+10,Ramez A. Elmasri
+10,Shamkant B. Navathe
+11,Rob Vieira
+12,Paul DuBois
+13,Laurell K. Hamilton
+14,Sue Monk Kidd
+15,Tara Calishain
+15,Rael Dornfest
+16,Jay P. Decima
+17,Wladyslaw Szpilman
+18,Roma Ligocka
+19,Michael Cunningham
+20,Larry Bossidy
+20,Ram Charan
+20,Charles Burck
+21,James Patterson
+21,Andrew Gross
+22,Jeffery Deaver
+23,Jacquelyn Mitchard
+24,Patrick Lencioni
+25,Mary Higgins Clark
+26,Dee Henderson
+27,Ann Patchett
+28,Karen Marie Moning
+29,Suzanne Brockmann
+30,Steven Pinker
+31,Albert-László Barabási
+32,Edward Osborne Wilson
+33,Edward Osborne Wilson
+34,Stephen Wolfram
+35,Harold McGee
+36,Francis D. K. Ching
+36,Cassandra Adams
+37,Virginia McAlester
+37,Lee McAlester
+38,Bryan Burkhart
+38,Allison Arieff
+39,Ralph R. Kylloe
+40,Leslie Plummer Clagett
+41,Gerard Gefen
+41,Christine Bastin
+41,Jacques Evrard
+42,Donald Kaufman
+42,Taffy Dahl
+42,Laurel Graeber
+42,Tina Freeman
+43,Simon Benninga
+43,Benjamin Czaczkes
+44,Mark Grinblatt
+44,Sheridan Titman
+45,Robert C. Higgins
+46,Paul Marcus Fischer
+46,William James Taylor
+46,Rita Hartung Cheng
+47,Donald E. Kieso
+47,Jerry J. Weygandt
+47,Terry D. Warfield
+48,Lawrence Revsine
+48,Daniel W. Collins
+48,W. Bruce Johnson
+49,Nicholas Sparks
+50,Mary Higgins Clark
+51,Don DeLillo
+52,Stephen King
+53,Mark Z. Danielewski
+54,Michael Romkey
+55,Chuck Palahniuk
+56,Matthew Delaney
+57,Stephen King
+58,Stephen King
+58,Bernie Wrightson
+59,Stephen King
+60,Don DeLillo
+61,Don DeLillo
+62,Don DeLillo
+63,Francis D. K. Ching
+64,Francis D. K. Ching
+65,Ann Patchett
+66,Ann Patchett
+67,Steven Pinker
+68,Steven Pinker
+69,Steven Pinker
+70,Edward Osborne Wilson
+71,Edward Osborne Wilson
+72,Nicholas Sparks
+73,Nicholas Sparks
+74,Nicholas Sparks
+75,Simon Benninga
+76,Jeffrey M. Wooldridge
+77,Jeffrey M. Wooldridge
+78,Steven J. Root
+79,Ken Coffman
+80,Gerald Carter
+81,Scott Kelby
+82,Scott Kelby
+83,Scott Kelby
+84,B. J. Fogg
+85,Michael Meyers
+86,Carl Sagan
+87,Carl Sagan
+88,Carl Sagan
+89,Carl Sagan
+90,Carl Sagan
+91,Alice Sebold
+92,Alice Sebold
+93,Ian McEwan
+94,Ian McEwan
+95,Ian McEwan
+96,Ian McEwan
+97,Nora Roberts
+98,Nora Roberts
+99,Nora Roberts
+100,Nora Roberts
+101,Andy Rae
+102,Andy Rae
+103,Joseph Truini
+104,Terry Pratchett
+105,Terry Pratchett
+106,Terry Pratchett
+107,Terry Pratchett
+108,Terry Pratchett
+109,Terry Pratchett

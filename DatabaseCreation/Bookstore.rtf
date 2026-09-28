@@ -1,0 +1,178 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;\f1\fmodern\fcharset0 Courier-Oblique;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red103\green107\blue114;
+\red23\green23\blue26;\red0\green0\blue0;\red255\green255\blue255;\red174\green176\blue183;\red23\green23\blue26;
+\red255\green255\blue255;\red174\green176\blue183;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c99985\c0;\csgenericrgb\c40392\c41961\c44706;
+\csgenericrgb\c9020\c9020\c10196;\cssrgb\c0\c1\c1;\cssrgb\c100000\c100000\c99985\c0;\csgenericrgb\c68235\c69020\c71765;\csgenericrgb\c9020\c9020\c10196;
+\cssrgb\c100000\c100000\c99971\c0;\csgenericrgb\c68235\c69020\c71765;}
+\margl1440\margr1440\vieww28900\viewh15480\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 \cb3 -- CREATE TABLE STATEMENTS\cf4 \cb5 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf6 \cb3 \
+-- Table for Administrators\
+CREATE TABLE Admin (\
+    AdminID INT NOT NULL,\
+    FirstName VARCHAR(15) NOT NULL,\
+    LastName VARCHAR(15)  NOT NULL,\
+    Email VARCHAR(15),\
+    PRIMARY KEY (AdminId)\
+);\
+\
+-- Table for Publishers\
+CREATE TABLE Publishers (\
+    PublisherID INT  NOT NULL,\
+    PName VARCHAR(32) NOT NULL,\
+    PRIMARY KEY(PublisherID)\
+);\
+\
+-- Table for Authors\
+CREATE TABLE Books_Author (\
+    BookID INT NOT NULL,\
+    AuthorName VARCHAR(32) NOT NULL,\
+    PRIMARY KEY (BookID, AuthorName)\
+);\
+\
+-- Table for Books\
+CREATE TABLE Book (\
+    BookID INT NOT NULL,\
+    PublisherID INT NOT NULL,\
+    InventoryID INT NOT NULL,\
+    Title VARCHAR(300) NOT NULL,\
+    Year INT,\
+    Genre VARCHAR(15),\
+    ISBN VARCHAR(20) UNIQUE NOT NULL,\
+    Price REAL NOT NULL,\
+    PRIMARY KEY (BookID),\
+    FOREIGN KEY (PublisherID) REFERENCES Publishers(PublisherID),\
+    FOREIGN KEY (InventoryID) REFERENCES Inventory(InventoryID)\
+);\
+\
+-- Table for Inventory\
+CREATE TABLE Inventory (\
+    InventoryID INT NOT NULL,\
+    Quantity INT,\
+    PRIMARY KEY (InventoryID)\
+);\
+\
+-- Table for Customers\
+CREATE TABLE Customer (\
+    CustomerID INT NOT NULL,\
+    FirstName VARCHAR(15) NOT NULL,\
+    LastName VARCHAR(15) NOT NULL,\
+    Email VARCHAR(320) NOT NULL,\
+    Phone_Number CHAR(9),\
+    PRIMARY KEY (CustomerID)\
+);\
+\
+-- Table for Shopping Cart\
+CREATE TABLE Shopping_Cart (\
+    Order_No INT NOT NULL,\
+    BookID INT NOT NULL,\
+    Order_Date DATE NOT NULL,\
+    Quantity INT NOT NULL,\
+    Cost REAL NOT NULL,\
+    FOREIGN KEY (BookID) REFERENCES BOOK(BookID),\
+    PRIMARY KEY (Order_No, BookID)\
+);\
+\
+-- Table for Reviews\
+CREATE TABLE Reviews (\
+    Review_No INT NOT NULL,\
+    CustomerID INT NOT NULL,\
+    Rating INT,\
+    Feedback VARCHAR(750),\
+    Date DATE NOT NULL,\
+    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),\
+    PRIMARY KEY(Review_No, CustomerID)\
+);\
+\
+-- Table for Inventory Orders\
+CREATE TABLE Inventory_Order (\
+    Order_No INT NOT NULL,\
+    InventoryID INT NOT NULL,\
+    Order_Date DATE NOT NULL,\
+    Quantity INT NOT NULL,\
+    Cost REAL NOT NULL,\
+    FOREIGN KEY (InventoryID) REFERENCES Inventory(InventoryID),\
+    PRIMARY KEY (Order_No, InventoryID)\
+);\
+\
+-- Table for Supplies\
+CREATE TABLE Supplies (\
+    Order_No INT NOT NULL,\
+    PublisherID INT NOT NULL,\
+    FOREIGN KEY (Order_No) REFERENCES Inventory_Order(Order_No),\
+    FOREIGN KEY (PublisherID) REFERENCES Publishers(PublisherID),\
+    PRIMARY KEY (Order_No, PublisherID)\
+);\
+\
+-- Table for Admin Orders\
+CREATE TABLE Admin_Orders(\
+    Order_No INT NOT NULL,\
+    AdminID INT NOT NULL,\
+    PRIMARY KEY(Order_No),\
+    FOREIGN KEY (Order_No) REFERENCES Inventory_Order(Order_No) ON DELETE CASCADE,\
+    FOREIGN KEY (AdminID) REFERENCES Admin(AdminID)\
+);\
+\
+-- Table for Customer Orders\
+CREATE TABLE Customer_Orders(\
+    Order_No INT NOT NULL,\
+    CustomerID INT NOT NULL,\
+    PRIMARY KEY(Order_No),\
+    FOREIGN KEY (Order_No) REFERENCES Shopping_Cart(Order_No) ON DELETE CASCADE,\
+    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)\
+);\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 \cb3 -- VIEWS\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf6 \cb3 \
+-- Customer_Orders_Total - This view records the total amount spent by each customer in the bookstore. \
+-- Provides information about frequent customers to the bookstore\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 \cb7 CREATE VIEW Customer_Orders_Total AS\
+SELECT Customer.CustomerID, Customer.FirstName, Customer.LastName, Customer.Email, 
+\f1\i \cb7 COUNT
+\f0\i0 \cb7 (Shopping_Cart.Order_No) AS Total_Orders , 
+\f1\i \cb7 SUM
+\f0\i0 \cb7 (Shopping_Cart.Cost) AS TotalSpent\
+FROM Customer_Orders\
+JOIN Shopping_Cart ON Customer_Orders.Order_No = Shopping_Cart.Order_No\
+JOIN Customer ON Customer.CustomerID = Customer_Orders.CustomerID\
+GROUP BY Customer_Orders.CustomerID;\cf8 \cb9 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf6 \cb3 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 \cb3 -- Customer Reviews - This view displays the average rating per customer and total number of ratings they have posted. \
+-- Includes customer information. This provides information about customer satisfaction and a contact point for customers \
+-- that have not had a good experience.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 \cb10 CREATE VIEW Customer_Reviews AS\
+SELECT Customer.FirstName, Customer.LastName, Customer.Email, 
+\f1\i \cb10 COUNT
+\f0\i0 \cb10 (Reviews.Review_No)as Review_Count, 
+\f1\i \cb10 AVG
+\f0\i0 \cb10 (Reviews.Rating)as Avg_Rating\
+FROM Customer\
+JOIN Reviews ON Customer.CustomerID = Reviews.CustomerID\
+GROUP BY Customer.CustomerID;\cb3 \
+\pard\pardeftab720\partightenfactor0
+\cf11 \cb5 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 \cb3 -- Indexes\
+CREATE INDEX Customer_Order_Idx\
+ON Customer_Orders(CustomerID);\
+\
+CREATE INDEX Books_Idx\
+ON BOOK(BookID);\
+\pard\pardeftab720\partightenfactor0
+\cf11 \cb5 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf6 \cb3 \
+\
+\
+}

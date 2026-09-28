@@ -1,0 +1,53 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c99985\c0;}
+\margl1440\margr1440\vieww28900\viewh18080\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 \cb3 -- Sample Insert in Book\
+INSERT INTO Book (BookID, PublisherID, InventoryID, Title, Year, Genre, ISBN, Price)\
+VALUES (501, 23, 110, 'Sample Book' , 2002, 'Computer','9999999999',100);\
+\
+-- Sample Insert in Publishers\
+INSERT INTO Publishers (PublisherID, PName)\
+VALUES (101, 'HarperCollins');\
+\
+-- Sample Insert for Author (Referenced BookId must be present)\
+INSERT INTO Books_Author (BookID, AuthorName)\
+VALUES (501,'Sample Author');\
+\
+-- Sample Insert for Customer\
+INSERT INTO Customer (CustomerID, FirstName, LastName, Email, Phone_Number)\
+VALUES (1001, 'Alice', 'Smith', 'alice@sample.com', '555-234-1234');\
+\
+-- Sample Insert for Admin\
+INSERT INTO Admin (AdminID, FirstName, LastName, Email)\
+VALUES (1001, 'Alice', 'Smith', 'alice@sample.com');\
+\
+-- Sample Insert for Customer Review (Referenced CustomerID must be present)\
+INSERT INTO Reviews (Review_No, CustomerID, Rating, Feedback, Date)\
+VALUES (1, 1001, 5, 'Excellent read!', '2025-04-19');\
+\
+-- Sample Insert for a customer Order\
+-- Step 1: Insert into Shopping_Cart\
+INSERT INTO Shopping_Cart (Order_No, Order_Date, BookID, Quantity, Cost)\
+VALUES (2001, 501, '2025-04-19', 2, 29.98);\
+\
+-- Step 2: Insert into Customer_Orders\
+INSERT INTO Customer_Orders (Order_No, CustomerID)\
+VALUES (2001, 1001);\
+\
+-- Sample Insert for an Inventory Order\
+-- Step 1: Insert into Inventory_Order\
+INSERT INTO Inventory_Order (Order_No, Order_Date, InventoryID, Quantity, Cost)\
+VALUES (2001, 501, '2025-04-19', 2, 29.98);\
+\
+-- Step 2: Insert into Admin_Orders\
+INSERT INTO Admin_Orders (Order_No, AdminID)\
+VALUES (2001, 1001);\
+\
+-- Step 3: Insert into Supplies\
+INSERT INTO Supplies (Order_No, PublisherID)\
+VALUES (2001, 23);\
+}

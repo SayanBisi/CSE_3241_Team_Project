@@ -1,0 +1,127 @@
+-- SAMPLE SQL Queries that are mentioned in the SECTION II: User Manual
+
+-- 1. Find titles of all books by Pratchett that cost less than 10$
+SELECT BookID, Book.Title
+FROM Book NATURAL JOIN Books_Author
+WHERE Books_Author.AuthorName LIKE '%Pratchett%' AND Book.Price < 10;
+
+-- 2. Give all the titles and their dates of purchase made by a CustomerID = 5
+SELECT Book.Title, Shopping_Cart.Order_Date
+FROM Shopping_Cart NATURAL JOIN Customer_Orders
+JOIN Book ON Book.BookID = Shopping_Cart.BookID
+WHERE Customer_Orders.CustomerID = 5;
+
+-- 3. Find the titles and ISBNs for all books with less than 5 copies in stock
+SELECT Book.Title, Book.ISBN
+FROM Book JOIN Inventory ON Book.InventoryID = Inventory.InventoryID
+WHERE Inventory.Quantity < 5;
+
+-- 4. Give all the customers who purchased a book by Pratchett and titles of the Pratchett books they purchased
+SELECT Customer.CustomerID, Customer.FirstName, Customer.LastName, Book.Title
+FROM Shopping_Cart NATURAL JOIN Customer_Orders
+JOIN Customer ON Customer_Orders.CustomerID = Customer.CustomerID
+JOIN Book ON Shopping_Cart.BookID = Book.BookID
+JOIN Books_Author ON Book.BookID = Books_Author.BookID
+WHERE Books_Author.AuthorName LIKE '%Pratchett%';
+
+-- 5. Find the total number of books purchased by a single customer, say CustomerID = 1
+SELECT CustomerID, Book_Count
+FROM (SELECT Customer_Orders.CustomerID, COUNT(*) AS BOOK_COUNT
+      FROM Shopping_Cart NATURAL JOIN Customer_Orders
+      GROUP BY Customer_Orders.CustomerID)
+WHERE CustomerID = 1;
+
+-- 6. Find the customer who has purchased the most books and the total number of books they have purchased
+SELECT CustomerID, MAX(Book_Count) AS Max_Count
+FROM (SELECT CustomerID, COUNT(*) AS Book_Count
+      FROM Shopping_Cart NATURAL JOIN Customer_Orders
+      GROUP BY CustomerID);
+
+-- 7. Find the count rating per Customer and average rating per Customer along with Customer name and email
+SELECT Customer.FirstName, Customer.LastName, COUNT(Rating) AS Rating_Count, AVG(Rating) as Avg_Rating, Customer.Email
+FROM Reviews JOIN Customer ON Reviews.CustomerID = Customer.CustomerID
+GROUP BY Reviews.CustomerID;
+
+-- 8. Find all stock orders made for books by 'Pratchett' and retrieve admin details, date of order, quantity, and order cost
+SELECT Admin.FirstName, Admin.LastName, Book.Title, Inventory_Order.InventoryID, Inventory_Order.Order_Date, Inventory_Order.Quantity, Inventory_Order.Cost
+FROM Inventory_Order NATURAL JOIN Admin_Orders
+JOIN Book ON Inventory_Order.InventoryID = Book.InventoryID
+JOIN ADMIN ON Admin_Orders.AdminID = ADMIN.AdminID
+JOIN Books_Author ON Book.BookID = Books_Author.BookID
+WHERE Books_Author.AuthorName LIKE '%Pratchett%';
+
+-- 9. Find all publishers for books authored by 'Pratchett' along with book titles and price
+SELECT Publishers.PublisherID, Publishers.Pname, Book.Title, Book.Price
+FROM Publishers NATURAL JOIN Book
+JOIN Books_Author ON Book.BookID = Books_Author.BookID
+WHERE Books_Author.AuthorName LIKE '%Pratchett%';
+
+-- 10. Provide a list of customer names, along with the total dollar amount each customer has spent
+SELECT Customer.FirstName, Customer.LastName, Sum(Cost) as Amount_Spent
+FROM Shopping_Cart NATURAL JOIN Customer_Orders
+JOIN Customer ON Customer_Orders.CustomerID = Customer.CustomerID
+GROUP BY Customer.CustomerID;
+
+-- 11. Provide a list of customer names and e-mail addresses for customers who have spent more than the average customer
+SELECT Customer.CustomerID, Customer.FirstName, Customer.LastName, Customer.Email, SUM(Cost) as Total_Expenditure
+FROM Shopping_Cart NATURAL JOIN Customer_Orders
+JOIN Customer ON Customer_Orders.CustomerID = Customer.CustomerID
+GROUP BY Customer_Orders.CustomerID
+HAVING Total_Expenditure >
+       (SELECT AVG(TotalSpent) FROM
+        (SELECT SUM(Cost) AS TotalSpent
+        FROM Shopping_Cart NATURAL JOIN Customer_Orders
+        GROUP BY CustomerID));
+
+-- 12. Provide a list of the titles in the database and associated total copies sold to customers, sorted from the title that has sold the most individual copies to the title has sold the least
+SELECT BookID, Book.Title, SUM(Quantity) as Copies_Sold
+FROM Book NATURAL JOIN Shopping_Cart
+GROUP BY BookID
+ORDER BY Copies_Sold DESC;
+
+-- 13. Provide a list of the titles in the database and associated dollar totals copies sold to customer, sorted from the title that
+-- has sold the highest dollar amount to the title that has sold the smallest
+SELECT BookID, Book.Title, SUM(Cost) as Dollar_Total
+FROM Book NATURAL JOIN Shopping_Cart
+GROUP BY BookID
+ORDER BY Dollar_Total DESC;
+
+-- 14. Find the most popular author in the database (one who has sold the most books)
+SELECT Books_Author.AuthorName, SUM(Quantity) as Copies_Sold
+FROM Books_Author NATURAL JOIN Shopping_Cart
+GROUP BY BookID, AuthorName
+ORDER BY Copies_Sold DESC;
+
+-- 15. Find the most profitable author in the database
+SELECT Books_Author.AuthorName, SUM(Cost) as Profit_Generated
+FROM Books_Author NATURAL JOIN Shopping_Cart
+GROUP BY BookID, AuthorName
+ORDER BY Profit_Generated DESC;
+
+-- 16. Provide a list of customer information for customers who purchased anything written by the most profitable author in the database
+SELECT Customer.FirstName, Customer.LastName, Customer.Email
+FROM Shopping_Cart NATURAL JOIN Customer_Orders
+JOIN Customer ON Customer.CustomerID = Customer_Orders.CustomerID
+JOIN Books_Author ON Shopping_Cart.BookID = Books_Author.BookID
+WHERE Books_Author.AuthorName IN
+      (SELECT Books_Author.AuthorName
+      FROM Books_Author NATURAL JOIN Shopping_Cart
+      GROUP BY BookID, AuthorName
+      ORDER BY SUM(Cost) DESC
+      LIMIT 1);
+
+-- 17. Provide the list of authors who wrote the books purchased by the customers who have spent more than the average customer
+SELECT Books_Author.AuthorName
+FROM Shopping_Cart NATURAL JOIN Customer_Orders
+JOIN Books_Author ON Books_Author.BookID = Shopping_Cart.BookID
+WHERE CustomerID IN
+      (SELECT Customer_Orders.CustomerID
+       FROM Shopping_Cart NATURAL JOIN Customer_Orders
+       JOIN Customer ON Customer_Orders.CustomerID = Customer.CustomerID
+       GROUP BY Customer_Orders.CustomerID
+       HAVING SUM(Cost) >
+                (SELECT AVG(TotalSpent)
+                FROM (SELECT SUM(Cost) AS TotalSpent
+                      FROM Shopping_Cart NATURAL JOIN Customer_Orders
+                      GROUP BY Customer_Orders.CustomerID))
+);

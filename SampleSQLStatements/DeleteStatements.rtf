@@ -1,0 +1,75 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c99985\c0;}
+\margl1440\margr1440\vieww20880\viewh12860\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 \cb3 -- Sample Delete for Book\
+-- Step 1: Update Books_Author\
+DELETE FROM Books_Author\
+WHERE BookID = 501;\
+\
+-- Step 2: Update Shopping_Cart\
+DELETE FROM Shopping_Cart\
+WHERE BookID = 501;\
+\
+--Step 4: Update Book\
+DELETE FROM Book\
+WHERE BookID = 501;\
+\
+-- Sample Delete for Publisher\
+-- Step 1: Update Book relation (Assume new Publisher is 23)\
+UPDATE Book SET PublisherID = 23 WHERE PublisherID = 101;\
+\
+-- Step 2: Update Supplies relation\
+DELETE FROM Supplies\
+WHERE PublisherID = 101;\
+\
+-- Step 3: Update Publishers relation\
+DELETE FROM Publishers\
+WHERE PublisherID = 101;\
+\
+-- Sample delete for Author\
+DELETE FROM Books_Author\
+WHERE BookID = 501 AND AuthorName = 'Sample Author';\
+\
+-- Sample delete for Customer\
+-- Step 1: Update Customer_Orders relation\
+DELETE FROM Customer_Orders\
+WHERE CustomerID = 1001;\
+\
+-- Step 2: Update Supplies relation\
+DELETE FROM Reviews\
+WHERE CustomerID = 1001;\
+\
+-- Step 3: Update Customer relation\
+DELETE FROM Customer\
+WHERE CustomerID = 1001;\
+\
+-- Sample Delete for Admin\
+-- Step 1: Update Admin_Orders relation\
+DELETE FROM Admin_Orders\
+WHERE AdminID = 1001;\
+\
+-- Step 2: Update Admin relation\
+DELETE FROM Admin\
+WHERE AdminID = 1001;\
+\
+-- Sample Delete for Review\
+DELETE FROM Reviews\
+WHERE Review_No = 1 AND CustomerID = 1001;\
+\
+-- Sample Delete for Shopping_Cart\
+DELETE FROM Shopping_Cart\
+WHERE Order_No = 2001;\
+\
+-- Sample Delete for Inventory_Order\
+-- Step 1: Delete from Supplies\
+DELETE FROM Supplies\
+WHERE Order_No = 2001;\
+\
+-- Step 2: Delete from Inventory_Order\
+DELETE FROM Inventory_Order\
+WHERE Order_No = 2001;\
+}
